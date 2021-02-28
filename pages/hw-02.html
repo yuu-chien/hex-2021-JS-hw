@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../css/main.min.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h2>第一題</h2>
+        <blockquote class="imgur-embed-pub" lang="en" data-id="2qhThXr"><a href="https://imgur.com/2qhThXr">View post on imgur.com</a></blockquote>
+        <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+        <h2>第二題</h2>
+        <blockquote class="imgur-embed-pub" lang="en" data-id="caVLceZ"><a href="https://imgur.com/caVLceZ">View post on imgur.com</a></blockquote>
+        <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+        <h2>第三題</h2>
+        <blockquote class="imgur-embed-pub" lang="en" data-id="GPcLQQo"><a href="https://imgur.com/GPcLQQo">View post on imgur.com</a></blockquote>
+        <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+        <h2>第四題</h2>
+        <blockquote class="imgur-embed-pub" lang="en" data-id="54MAkdF"><a href="https://imgur.com/54MAkdF">View post on imgur.com</a></blockquote>
+        <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+        <h2>第五題</h2>
+        <blockquote class="imgur-embed-pub" lang="en" data-id="XhhwqWL"><a href="https://imgur.com/XhhwqWL">View post on imgur.com</a></blockquote>
+        <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+        <h2>第六題</h2>
+        <blockquote class="imgur-embed-pub" lang="en" data-id="bwukxx3"><a href="https://imgur.com/bwukxx3">View post on imgur.com</a></blockquote>
+        <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+        <h2>第七題</h2>
+        <blockquote class="imgur-embed-pub" lang="en" data-id="e05zosU"><a href="https://imgur.com/e05zosU">View post on imgur.com</a></blockquote>
+        <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+        <h2>第八題</h2>
+        <blockquote class="imgur-embed-pub" lang="en" data-id="JEdzRfV"><a href="https://imgur.com/JEdzRfV">View post on imgur.com</a></blockquote>
+        <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+        <h2>第九題</h2>
+        <blockquote class="imgur-embed-pub" lang="en" data-id="CJ2xKpl"><a href="https://imgur.com/CJ2xKpl">View post on imgur.com</a></blockquote>
+        <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+        <h2>第十題</h2>
+        <blockquote class="imgur-embed-pub" lang="en" data-id="QGy9bvC"><a href="https://imgur.com/QGy9bvC">View post on imgur.com</a></blockquote>
+        <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+    </body>
+    <script>
+        /**   作業 1：比較運算子   **/
+        let a = 4;
+        let b = 5;
+        console.log(a > 0); //true
+        console.log(b > a); //true
+        console.log(a + b > 1); //true
+
+        let c = 5;
+        let d = 6;
+        console.log(c == d); //false
+        console.log(c !== d); //true
+
+        let e = 8;
+        let f = 5;
+        console.log(f >= e); //false
+        console.log(f != e); //true
+        console.log(f == e); //false
+
+        /** ---------------------------------- **/
+        /**   作業 2：比較運算子+強制轉型   **/
+        let g = 8;
+        let h = "8";
+        console.log(g * h == 88); // false
+        console.log(g * h == 64); // true
+        console.log(g * h === 64); // true
+        //console.log('g*h', typeof (g * h));  // number
+
+        let i = "9";
+        let j = "9";
+        console.log(i + j === "99"); // true
+        console.log(i + j === 99); // false
+        //console.log('i+j', typeof (i + j));  // string
+
+        var k = 2;
+        var l = "5";
+        console.log(k * l >= 5);
+        // 變數 k 為數字型別，變數 l 為字串型別
+        // 兩者相乘運算時，會將變數 l 轉為數字型別
+        // 其運算結果為 10，符合 10 >= 5 這個表示式，因此印出的結果為 true。
+
+        /** ---------------------------------- **/
+        /**   作業 3：if 練習   **/
+        let m = 1;
+        if (2 > 1) {
+            m = 3;
+        }
+        console.log(m);
+        let n = 5;
+        if (true) {
+            n += 10;
+        }
+        console.log(n);
+        // m 為 3
+        // n 為 15
+        // 兩個判斷式皆因符合條件（true）因此執行函式內容，改變了 m 和 n 的值
+
+        /** ---------------------------------- **/
+        /**   作業 4：if 練習   **/
+        let childHeight = 133;
+        let restaurantChildHeight = 120;
+        let bill = 600;
+        if (childHeight > restaurantChildHeight) {
+            bill += 300;
+        }
+        console.log(`他們總共支付了 ${bill} 元`);
+
+        /** ---------------------------------- **/
+        /**   作業 5：if、else 練習   **/
+        let badge = 3;
+        let buyListItem = 5,
+            huaButItem = 4;
+        if (buyListItem == huaButItem) {
+            badge += 5;
+        } else {
+            badge += 1;
+        }
+        console.log(`小華一共得到 ${badge} 個徽章`);
+
+        /** ---------------------------------- **/
+        /**   作業 6：邏輯運算子   **/
+        let o = 200;
+        let p = 300;
+        console.log(o == 200 || p == 300); // true
+        console.log(o !== 200 || p !== 300); // false
+        console.log(o == 200 && p == 300); // true
+
+        let hamPrice = 50;
+        let hamNum = 20;
+        let isSale = 3000 <= hamPrice * hamNum || hamNum > 10;
+        console.log(isSale);
+        // true，有折扣資格。
+        // 只要符合「3000 小於等於 hamPrice*hamNum」或「hamNum 大於 10」其中一項即成立
+
+        /** ---------------------------------- **/
+        /**   作業 7：邏輯觀察  **/
+        let weight = 40;
+        let re = /^\d/;
+        // 驗證 weight 是否為數字且為 40 以上
+        if (re.test(weight) && weight >= 40) {
+            onWeighs(weight);
+        } else {
+            console.log("請輸入大於40的數字");
+        }
+        function onWeighs(showNum) {
+            if (showNum < 60) {
+                console.log("過輕");
+            } else if (showNum < 80) {
+                console.log("正常");
+            } else {
+                console.log("過重");
+            }
+        }
+
+        /** ---------------------------------- **/
+        /**   作業 8：邏輯運算子加上 if   **/
+        let giftNum = 200;
+        let giftPriceRule = 399;
+        let BobPrice = 500;
+        let BobIsVip = false;
+
+        if (BobPrice > giftPriceRule || BobIsVip) {
+            console.log("客戶您好，您已符合贈品資格");
+            giftNum--;
+        } else {
+            console.log("客戶您好，您未符合贈品資格");
+        }
+        console.log(`贈品還剩下 ${giftNum} 個`);
+
+        /** ---------------------------------- **/
+        /**   作業 9：貪心國稅收   **/
+        let mingMoney = 870000;
+        let mingBill = 5000;
+
+        function taxCount() {
+            if (mingMoney > 1000000) {
+                mingMoney -= mingMoney * 0.8;
+            } else if (mingMoney > 540000 && mingMoney <= 1000000) {
+                mingMoney -= mingMoney * 0.5;
+            } else {
+                mingMoney -= mingMoney * 0.3;
+            }
+            mingBill += mingMoney;
+            console.log(`小明需要總共需要支付 ${mingBill} 元的帳單`);
+        }
+        taxCount();
+
+        /** ---------------------------------- **/
+        /**   作業 10：剪刀石頭布（需包含 whimsical 流程圖連結）   **/
+        let states = ["soccer", "paper", "stone"],
+            playerA = "paper",
+            playerB = "paper";
+
+        playing(playerA, playerB);
+        function playing(playerA, playerB) {
+            states.forEach((item) => {
+                if (playerA !== item || playerB !== item) {
+                    return;
+                }
+            });
+
+            if (playerA === "soccer") {
+                if (playerB === playerA) {
+                    console.log("平手");
+                } else if (playerB === "paper") {
+                    console.log("A WIN!");
+                } else {
+                    console.log("B WIN!");
+                }
+            } else if (playerA === "stone" || playerA === "paper") {
+                if (playerB === playerA) {
+                    console.log("平手");
+                } else if (playerB === "paper") {
+                    console.log("B WIN!");
+                } else {
+                    console.log("A WIN!");
+                }
+            }
+        }
+    </script>
+</html>
