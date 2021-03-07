@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../css/main.min.css" />
+        <title>Document</title>
+    </head>
+    <body></body>
+    <script>
+        //
+        // let height = 200,
+        //     weight = 80,
+        //     bmi = 0;
+        // 解決 toFixed() 會自動四捨五入的情況
+        // 1. 目前人類的身高一定是三位數（百位）內
+        // 2. 身高（公分轉公尺）除 100 後，讓 toFixed() 取值到小數點後第三位，即可讓小數點後第二位不受影響
+        // console.log((height / 100).toFixed(3));
+        // 3. 由於身高只到百位，因此不論如何小數點後第三位一定是 0
+        //    如果嚴謹一點的話可以把它切掉 slice() 再進行後續步驟
+        // console.log((height / 100).toFixed(3).slice(0, 4));
+
+        // 計算身高（公尺）的平方
+        // height = Math.pow((height / 100).toFixed(3), 2);
+        // console.log("現在身高", height);
+
+        // 計算 BMI，並取其結果的整數
+        // bmi = Math.floor(weight / height);
+        // console.log("bmi", bmi);
+        let re = /^\d/;
+        const bmiStatesData = {
+            overThin: {
+                state: "過輕",
+                color: "藍色",
+            },
+            normal: {
+                state: "正常",
+                color: "紅色",
+            },
+            overWeight: {
+                state: "過重",
+                color: "澄色",
+            },
+            mildFat: {
+                state: "輕度肥胖",
+                color: "黃色",
+            },
+            moderateFat: {
+                state: "中度肥胖",
+                color: "黑色",
+            },
+            severeFat: {
+                state: "重度肥胖",
+                color: "綠色",
+            },
+        };
+        let bmiHistoryData = [];
+
+        function showHint(txt, bmi) {
+            console.log(`您的體重為${bmiStatesData[txt].state}，健康指數為${bmiStatesData[txt].color}`);
+            let obj = {};
+            obj.bmi = bmi;
+            obj.state = bmiStatesData[txt].state;
+            obj.color = bmiStatesData[txt].color;
+            bmiHistoryData.push(obj);
+        }
+
+        function printBmi(height, weight) {
+            if (re.test(height) && re.test(weight)) {
+                height = Math.pow((height / 100).toFixed(3), 2);
+                let bmi = Math.floor(weight / height);
+
+                if (bmi < 18.5) {
+                    showHint("overThin", bmi);
+                } else if (bmi <= 18.5 && bmi < 24) {
+                    showHint("normal", bmi);
+                } else if (24 <= bmi && bmi < 27) {
+                    showHint("overWeight", bmi);
+                } else if (30 <= bmi && bmi < 35) {
+                    showHint("mildFat", bmi);
+                } else if (30 <= bmi && bmi < 35) {
+                    showHint("moderateFat", bmi);
+                } else {
+                    showHint("severeFat", bmi);
+                }
+            } else {
+                console.log("您的數值輸入錯誤，請重新輸入");
+            }
+        }
+
+        function showHistoryData() {
+            let historyNum = bmiHistoryData.length;
+            console.log(
+                `您總共計算 ${historyNum} 次 BMI 紀錄，最後一次 BMI 指數為 ${bmiHistoryData[historyNum - 1].bmi}，體重為${bmiHistoryData[historyNum - 1].state}！健康指數為${
+                    bmiHistoryData[historyNum - 1].color
+                }！`
+            );
+        }
+
+        printBmi(178, 20);
+        printBmi(178, 70);
+        printBmi(178, 85);
+        printBmi(178, 90);
+        printBmi(178, 110);
+        printBmi(178, 130);
+        printBmi("身高", "體重");
+        showHistoryData();
+    </script>
+</html>
