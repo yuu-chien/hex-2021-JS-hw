@@ -29,6 +29,7 @@
         // bmi = Math.floor(weight / height);
         // console.log("bmi", bmi);
         let re = /^\d/;
+
         const bmiStatesData = {
             overThin: {
                 state: "過輕",
@@ -55,16 +56,8 @@
                 color: "綠色",
             },
         };
-        let bmiHistoryData = [];
 
-        function showHint(txt, bmi) {
-            console.log(`您的體重為${bmiStatesData[txt].state}，健康指數為${bmiStatesData[txt].color}`);
-            let obj = {};
-            obj.bmi = bmi;
-            obj.state = bmiStatesData[txt].state;
-            obj.color = bmiStatesData[txt].color;
-            bmiHistoryData.push(obj);
-        }
+        let bmiHistoryData = [];
 
         function printBmi(height, weight) {
             if (re.test(height) && re.test(weight)) {
@@ -77,7 +70,7 @@
                     showHint("normal", bmi);
                 } else if (24 <= bmi && bmi < 27) {
                     showHint("overWeight", bmi);
-                } else if (30 <= bmi && bmi < 35) {
+                } else if (27 <= bmi && bmi < 30) {
                     showHint("mildFat", bmi);
                 } else if (30 <= bmi && bmi < 35) {
                     showHint("moderateFat", bmi);
@@ -89,11 +82,22 @@
             }
         }
 
+        function showHint(txt, bmi) {
+            console.log(`您的體重為${bmiStatesData[txt].state}，健康指數為${bmiStatesData[txt].color}`);
+            //let obj = {};
+            //obj.bmi = bmi;
+            //obj.state = bmiStatesData[txt].state;
+            //obj.color = bmiStatesData[txt].color;
+            stateData = bmiStatesData[txt].state;
+            colorData = bmiStatesData[txt].color;
+            bmiHistoryData.push({ bmi, stateData, colorData });
+        }
+
         function showHistoryData() {
             let historyNum = bmiHistoryData.length;
             console.log(
-                `您總共計算 ${historyNum} 次 BMI 紀錄，最後一次 BMI 指數為 ${bmiHistoryData[historyNum - 1].bmi}，體重為${bmiHistoryData[historyNum - 1].state}！健康指數為${
-                    bmiHistoryData[historyNum - 1].color
+                `您總共計算 ${historyNum} 次 BMI 紀錄，最後一次 BMI 指數為 ${bmiHistoryData[historyNum - 1].bmi}，體重為${bmiHistoryData[historyNum - 1].stateData}！健康指數為${
+                    bmiHistoryData[historyNum - 1].colorData
                 }！`
             );
         }
