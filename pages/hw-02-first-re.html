@@ -5,9 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="../css/main.min.css" />
-        <title>第二週．邏輯判斷之術</title>
+        <title>第二週．邏輯判斷之術：助教回覆＆修改</title>
     </head>
+
     <body>
+        <!-- 題目 -->
+        <!-- <div>
         <h2>第一題</h2>
         <blockquote class="imgur-embed-pub" lang="en" data-id="2qhThXr"><a href="https://imgur.com/2qhThXr">View post on imgur.com</a></blockquote>
         <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
@@ -47,6 +50,43 @@
         <h2>第十題</h2>
         <blockquote class="imgur-embed-pub" lang="en" data-id="QGy9bvC"><a href="https://imgur.com/QGy9bvC">View post on imgur.com</a></blockquote>
         <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+    </div> -->
+        <!-- 助教回覆 -->
+        <div>
+            <ul>
+                <li>
+                    <div>回覆日期：2021.03.02</div>
+                </li>
+                <li>
+                    <div>作業 2</div>
+                    <div>這題少了一個 console.log(i+j == 99); 的答案喔，記得要補上。</div>
+                </li>
+                <li>
+                    <div>作業 5</div>
+                    <div>如果 buyListItem == huaButItem 條件有符合的話，應該是 badge += 3; 才對。</div>
+                </li>
+                <li>
+                    <div>作業 8</div>
+                    <div>BobPrice > giftPriceRule 要改成 >=</div>
+                </li>
+                <li>
+                    <div>作業 9</div>
+                    <div>程式的邏輯需要修正，若要計算總共需要支付的稅收，應該改為在各個條件下執行 mingBill += mingMoney * 折扣; 並把 mingBill += mingMoney; 這行移除。</div>
+                </li>
+                <li>
+                    <div>作業 10</div>
+                    <div>
+                        同學的流程圖與程式碼運作是無法對應的，可以思考看看要調整流程圖或是程式碼，讓它們彼此可以對照喔。
+                        <br />
+                        同學的 playing(playerA, playerB) 函式中，在 forEach 內使用 return 是無效的，可以改用 for 迴圈進行判斷。
+                        <br />
+                        playerA !== item || playerB !== item 這段判斷式有誤。假設 item 為 "soccer"，playerA, playerB 皆為 "paper" 時，return 就會被觸發，這是不正確的。
+                        <br />
+                        else if (playerA === "stone" || playerA === "paper") 這段的判斷式有誤，當 playerA = "paper", playerB = "soccer" 時卻會觸發 "A WIN!"
+                    </div>
+                </li>
+            </ul>
+        </div>
     </body>
     <script>
         /**   作業 1：比較運算子   **/
@@ -78,6 +118,7 @@
 
         let i = "9";
         let j = "9";
+        console.log(i + j == 99); // true
         console.log(i + j === "99"); // true
         console.log(i + j === 99); // false
         //console.log('i+j', typeof (i + j));  // string
@@ -121,7 +162,7 @@
         let buyListItem = 5,
             huaButItem = 4;
         if (buyListItem == huaButItem) {
-            badge += 5;
+            badge += 3;
         } else {
             badge += 1;
         }
@@ -169,7 +210,7 @@
         let BobPrice = 500;
         let BobIsVip = false;
 
-        if (BobPrice > giftPriceRule || BobIsVip) {
+        if (BobPrice >= giftPriceRule || BobIsVip) {
             console.log("客戶您好，您已符合贈品資格");
             giftNum--;
         } else {
@@ -191,39 +232,48 @@
                 mingMoney -= mingMoney * 0.3;
             }
             mingBill += mingMoney;
-            console.log(`小明需要總共需要支付 ${mingBill} 元的帳單`);
         }
         taxCount();
+        console.log(`小明需要總共需要支付 ${mingBill} 元的帳單`);
 
         /** ---------------------------------- **/
-        /**   作業 10：剪刀石頭布（需包含 whimsical 流程圖連結）   **/
-        let states = ["soccer", "paper", "stone"],
+        /**   作業 10：剪刀石頭布   **/
+        // 3 things you didn’t know about the forEach loop in JS https://medium.com/front-end-weekly/3-things-you-didnt-know-about-the-foreach-loop-in-js-ff02cec465b1
+        let states = ["soccer", "stone", "paper"],
             playerA = "paper",
             playerB = "paper";
 
-        playing(playerA, playerB);
-        function playing(playerA, playerB) {
-            states.forEach((item) => {
-                if (playerA !== item || playerB !== item) {
-                    return;
+        for (let i = 0; i < states.length; i++) {
+            if (playerA == states[i] && playerB == states[i]) {
+                console.log("平手");
+                break;
+            } else if (playerA == "soccer") {
+                switch (playerB) {
+                    case "stone":
+                        console.log("B WIN!");
+                        break;
+                    case "paper":
+                        console.log("A WIN!");
+                        break;
                 }
-            });
-
-            if (playerA === "soccer") {
-                if (playerB === playerA) {
-                    console.log("平手");
-                } else if (playerB === "paper") {
-                    console.log("A WIN!");
-                } else {
-                    console.log("B WIN!");
+                break;
+            } else if (playerA == "stone") {
+                switch (playerB) {
+                    case "soccer":
+                        console.log("A WIN!");
+                        break;
+                    case "paper":
+                        console.log("B WIN!");
+                        break;
                 }
-            } else if (playerA === "stone" || playerA === "paper") {
-                if (playerB === playerA) {
-                    console.log("平手");
-                } else if (playerB === "paper") {
-                    console.log("B WIN!");
-                } else {
-                    console.log("A WIN!");
+            } else if (playerA == "paper") {
+                switch (playerB) {
+                    case "soccer":
+                        console.log("B WIN!");
+                        break;
+                    case "stone":
+                        console.log("A WIN!");
+                        break;
                 }
             }
         }

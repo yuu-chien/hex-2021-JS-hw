@@ -1,98 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>第三週．物件與陣列自訂題目｜六角咖啡廳 Part2：老闆新副業の實踐</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>>六角咖啡廳 Part2：老闆新副業の實踐</title>
-</head>
-
-<body>
-    <div>六角咖啡廳 Part2：老闆新副業の實踐</div>
-    <div>
-        決定好讓小鮪和小潔相遇的日子後，老闆卡柏想了一個製造他們相遇和說上話的計畫：
-        <br>
-        首先請被煮咖啡耽誤的工程師錢大用計將小鮪和小潔排在一起，等輪到小鮪點餐時，老闆卡柏告知小鮪是今日第100位客人，若他買超過100元的飲品，
-        則可以獲得六角咖啡廳特製的提拉米蘇，而且第101位客人點的飲品免費。
-        <br>
-        計畫當日，小鮪點了 Irish Coffee，小潔點了 Passion Fruit Tea。
-        請幫助錢大讓小鮪和小潔排在一起，並印出小鮪和小潔各自點的品項、判斷是否符合老闆卡柏提供的優惠，以及兩人最後需付的價格。
-    </div>
-
-</body>
-<script>
-    let lineOfCustomers = ['customer1', 'customer2', 'customer3', '小潔', 'customer4', 'customer5', '小鮪', 'customer6'];
-    let menu = {
-        coffee: [
-            {
-                name: 'Espresso',
-                price: 60
-            },
-            {
-                name: 'Americano',
-                price: 80
-            },
-            {
-                name: 'Cafe Latte',
-                price: 100
-            },
-            {
-                name: 'Cappuccino',
-                price: 110
-            },
-            {
-                name: 'Mocha',
-                price: 120
-            },
-            {
-                name: 'Irish Coffee',
-                price: 200
-            }
-        ],
-        tea: {
-            blackTea: [
+    <body>
+        <div>六角咖啡廳 Part2：老闆新副業の實踐</div>
+        <div>
+            決定好讓小鮪和小潔相遇的日子後，老闆卡柏想了一個製造他們相遇和說上話的計畫：
+            <br />
+            首先請被煮咖啡耽誤的工程師錢大用計將小鮪和小潔排在一起，等輪到小鮪點餐時，老闆卡柏告知小鮪是今日第100位客人，若他買超過100元的飲品，
+            則可以獲得六角咖啡廳特製的提拉米蘇，而且第101位客人點的飲品免費。
+            <br />
+            計畫當日，小鮪點了 Irish Coffee，小潔點了 Passion Fruit Tea。 請幫助錢大讓小鮪和小潔排在一起，並印出小鮪和小潔各自點的品項、判斷是否符合老闆卡柏提供的優惠，以及兩人最後需付的價格。
+        </div>
+    </body>
+    <script>
+        let lineOfCustomers = ["customer1", "customer2", "customer3", "小潔", "customer4", "customer5", "小鮪", "customer6"];
+        let menu = {
+            coffee: [
                 {
-                    name: 'Earl Grey Tea',
-                    price: 80
+                    name: "Espresso",
+                    price: 60,
                 },
                 {
-                    name: 'English Breakfast Tea',
-                    price: 160
+                    name: "Americano",
+                    price: 80,
                 },
                 {
-                    name: 'Ceylon Black tea',
-                    price: 100
+                    name: "Cafe Latte",
+                    price: 100,
                 },
                 {
-                    name: 'Darjeeling Tea',
-                    price: 100
+                    name: "Cappuccino",
+                    price: 110,
+                },
+                {
+                    name: "Mocha",
+                    price: 120,
+                },
+                {
+                    name: "Irish Coffee",
+                    price: 200,
                 },
             ],
-            infusion: {
-                name: 'Passion Fruit Tea',
-                price: 180,
-            }
-        },
-    };
-    let infos = {
-        weiBuy: [],
-        jieBuy: []
-    }
+            tea: {
+                blackTea: [
+                    {
+                        name: "Earl Grey Tea",
+                        price: 80,
+                    },
+                    {
+                        name: "English Breakfast Tea",
+                        price: 160,
+                    },
+                    {
+                        name: "Ceylon Black tea",
+                        price: 100,
+                    },
+                    {
+                        name: "Darjeeling Tea",
+                        price: 100,
+                    },
+                ],
+                infusion: {
+                    name: "Passion Fruit Tea",
+                    price: 180,
+                },
+            },
+        };
+        let infos = {
+            weiBuy: [],
+            jieBuy: [],
+        };
 
-    lineOfCustomers.sort();
-    console.log(`現在的隊伍順序是 ${lineOfCustomers}`);
+        lineOfCustomers.sort();
+        console.log(`現在的隊伍順序是 ${lineOfCustomers}`);
 
-    infos.weiBuy.push(menu.coffee[5]);
-    infos.jieBuy.push(menu.tea.infusion);
-    console.log(`小鮪點了 ${infos.weiBuy[0].name}，小潔點了 ${infos.jieBuy[0].name}`);
+        infos.weiBuy.push(menu.coffee[5]);
+        infos.jieBuy.push(menu.tea.infusion);
+        console.log(`小鮪點了 ${infos.weiBuy[0].name}，小潔點了 ${infos.jieBuy[0].name}`);
 
-    if (infos.weiBuy[0].price > 100 && infos.jieBuy[0].price > 100) {
-        infos.jieBuy[0].price = 0;
-        infos.weiBuy.unshift("free Tiramisu");
-        console.log(`小鮪符合優惠方案，所以小潔點的 ${infos.jieBuy[0].name} 為 ${infos.jieBuy[0].price} 元，小鮪也獲贈免費的提拉米蘇`);
-    };
-
-</script>
-
+        if (infos.weiBuy[0].price > 100 && infos.jieBuy[0].price > 100) {
+            infos.jieBuy[0].price = 0;
+            infos.weiBuy.unshift("free Tiramisu");
+            console.log(`小鮪符合優惠方案，所以小潔點的 ${infos.jieBuy[0].name} 為 ${infos.jieBuy[0].price} 元，小鮪也獲贈免費的提拉米蘇`);
+        }
+    </script>
 </html>
