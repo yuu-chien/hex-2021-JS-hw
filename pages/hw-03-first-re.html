@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../css/main.min.css" />
+        <title>第三週．物件與陣列：助教回覆＆修改</title>
+    </head>
+    <body>
+        <!-- 題目 -->
+        <div>
+            <h2>作業1</h2>
+            <blockquote class="imgur-embed-pub" lang="en" data-id="K9r2AmG"><a href="https://imgur.com/K9r2AmG">View post on imgur.com</a></blockquote>
+            <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+            <h2>作業2</h2>
+            <blockquote class="imgur-embed-pub" lang="en" data-id="woHTbP7"><a href="https://imgur.com/woHTbP7">View post on imgur.com</a></blockquote>
+            <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+            <h2>作業3</h2>
+            <blockquote class="imgur-embed-pub" lang="en" data-id="dy6PMJF"><a href="https://imgur.com/dy6PMJF">View post on imgur.com</a></blockquote>
+            <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+            <h2>作業4：洧杰老師：「此題目請先不做，可略過後直接提交」</h2>
+            <a href="https://api.kcg.gov.tw/api/service/get/9c8e1450-e833-499c-8320-29b36b7ace5c" target="_blank" style="display: block">高雄旅遊網的資料</a>
+            <blockquote class="imgur-embed-pub" lang="en" data-id="j1PQ9Lj"><a href="https://imgur.com/j1PQ9Lj">View post on imgur.com</a></blockquote>
+            <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+            <h2>作業5</h2>
+            <blockquote class="imgur-embed-pub" lang="en" data-id="n8T6VDk"><a href="https://imgur.com/n8T6VDk">View post on imgur.com</a></blockquote>
+            <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+            <h2>作業6</h2>
+            <blockquote class="imgur-embed-pub" lang="en" data-id="5Rzs7kS"><a href="https://imgur.com/5Rzs7kS">View post on imgur.com</a></blockquote>
+            <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+            <h2>作業7</h2>
+            <blockquote class="imgur-embed-pub" lang="en" data-id="fRJFlEx"><a href="https://imgur.com/fRJFlEx">View post on imgur.com</a></blockquote>
+            <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+            <h2>作業8</h2>
+            <blockquote class="imgur-embed-pub" lang="en" data-id="ItbLDf5"><a href="https://imgur.com/ItbLDf5">View post on imgur.com</a></blockquote>
+            <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+            <h2>作業9</h2>
+            <a
+                href="https://data.kcg.gov.tw/dataset/a98754a3-3446-4c9a-abfc-58dc49f2158c/resource/48d4dfc4-a4b2-44a5-bdec-70f9558cd25d/download/yopendata1070622opendatajson-1070622.json"
+                target="_blank"
+                style="display: block"
+                >1. 電動機車充電站名稱及充電站地址</a
+            >
+            <a href="https://api.kcg.gov.tw/api/service/get/4eba94e0-323c-4530-95a6-dd276bd8765d" target="_blank" style="display: block">2. 輕軌車站出入口基本資料</a>
+            <a href="https://opendata.khcc.gov.tw/public/OD_art_program.ashx?SDate=2021/01/24&EDate=2021/07/24" target="_blank" style="display: block">3. 高雄市政府文化局-演出活動</a>
+            <blockquote class="imgur-embed-pub" lang="en" data-id="Pvl9dhN"><a href="https://imgur.com/Pvl9dhN">View post on imgur.com</a></blockquote>
+            <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+            <h2>作業10</h2>
+            <a href="https://whimsical.com/TvvWaNiFkczvT3Q3pk35KS@2Ux7TurymMpLMS7b1df4" target="_blank" style="display: block">Whimsical 範例圖片</a>
+            <blockquote class="imgur-embed-pub" lang="en" data-id="EeyyvPN"><a href="https://imgur.com/EeyyvPN">View post on imgur.com</a></blockquote>
+            <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+        </div>
+        <!-- 助教回覆 -->
+        <div>
+            <ul>
+                <li>
+                    <div>回覆日期：2021.03.06</div>
+                </li>
+                <li>
+                    <div>作業 1</div>
+                    <div>pets 兩個寵物姓名應該分成不同陣列元素，因此陣列中是 ["John", "Mike"]</div>
+                </li>
+                <li>
+                    <div>作業 2</div>
+                    <div>應該是新增 black 的顏色資料</div>
+                </li>
+                <li>
+                    <div>作業 6</div>
+                    <div>名稱「六角大別墅」也需新增到物件中</div>
+                </li>
+            </ul>
+        </div>
+    </body>
+    <script>
+        /**   作業 1：設定物件   **/
+        let obj = {
+            myName: "Tom",
+            age: 18,
+            pets: ["John", "Mike"],
+            isWakeUp: false,
+        };
+
+        /** ---------------------------------- **/
+        /**   作業 2：陣列方法   **/
+        let colors = ["red", "black", "yellow"];
+        colors.push("black");
+        console.log(colors.length);
+
+        /** ---------------------------------- **/
+        /**   作業 3：陣列方法   **/
+        let motherStatus = [
+            {
+                name: "Mary",
+                age: 31,
+                sons: ["Tom", "Bob"],
+            },
+        ];
+        let idx = motherStatus[0];
+        idx.age += 1;
+        idx.sons.push("John");
+        console.log("motherStatus", motherStatus);
+
+        /** ---------------------------------- **/
+        /**   作業 4 洧杰老師：「此題目請先不做，可略過後直接提交」   **/
+
+        /** ---------------------------------- **/
+        /**   作業 5    **/
+        let items = {
+            familyPhoto: {
+                mother: "Jane",
+                father: "Bill",
+                daughter: "Rosa",
+                son: "Howard",
+                dogs: ["Bobo", "Koko"],
+            },
+        };
+
+        /** ---------------------------------- **/
+        /**   作業 6：宣告變數以符合描述情境    **/
+        let hexCommunity = {
+            name: "六角大別墅",
+            location: "Kaohsiung",
+            household: 2,
+            infos: [
+                {
+                    id: 1,
+                    price: 280000000,
+                    squareFeet: 900,
+                    storeys: 5,
+                    bathroom: 3,
+                    hasPool: false,
+                    hasBasement: true,
+                    hasHousekeeper: false,
+                    isSold: true,
+                },
+                {
+                    id: 2,
+                    price: 320000000,
+                    squareFeet: 1200,
+                    storeys: 7,
+                    bathroom: 4,
+                    hasPool: true,
+                    hasBasement: true,
+                    hasHousekeeper: true,
+                    isSold: false,
+                },
+            ],
+        };
+
+        /** ---------------------------------- **/
+        /**   作業 7：計算房間總價   **/
+        let roomDetail = {
+            success: true,
+            items: [
+                {
+                    id: "3Elqe8kfMxdZv5xFLV4OUeN6jhmxIvQSTyj4eTgIowfIRvF4rerA2Nuegzc2Rgwu",
+                    imageUrl: "https:\/\/images.unsplash.com\/photo-1551776235-dde6d482980b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80",
+                    normalDayPrice: 1380,
+                    holidayPrice: 1500,
+                    name: "Single Room",
+                },
+                {
+                    id: "g0mYhN6ignMz4VYW7eiWsXZN8DHolHzH8LuVmM6hq5h6BrrqrLMw4aJgHv7LZ3RQ",
+                    imageUrl: "https:\/\/images.unsplash.com\/photo-1564182379166-8fcfdda80151?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80",
+                    normalDayPrice: 1899,
+                    holidayPrice: 2000,
+                    name: "Deluxe Single Room",
+                },
+                {
+                    id: "RA8NhExaXXZB7EODVALSDvFFQzj1JP0a4C1pwZ1acPaieRBwiWoCb0FE0KUbXaxg",
+                    imageUrl: "https:\/\/images.unsplash.com\/photo-1526913621366-a4583840d736?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+                    normalDayPrice: 2460,
+                    holidayPrice: 2500,
+                    name: "Double Room",
+                },
+                {
+                    id: "kICyWhZ5XsfI4n1d4gBOsDjIyIxNozwgmxYKyZpzi5pjLcU2Nl4RhiGrn6zaPuTJ",
+                    imageUrl: "https:\/\/images.unsplash.com\/photo-1519710889408-a67e1c7e0452?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80",
+                    normalDayPrice: 2888,
+                    holidayPrice: 3000,
+                    name: "Deluxe Double Room",
+                },
+                {
+                    id: "VCxbQq1vLeUtxW781k9Dlq3mHBRNl5YP19Lhq8k5TbIr2BeH58gRpnNKGoEgkysz",
+                    imageUrl: "https:\/\/images.unsplash.com\/photo-1558976825-6b1b03a03719?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+                    normalDayPrice: 3350,
+                    holidayPrice: 3500,
+                    name: "Twin Room",
+                },
+                {
+                    id: "YovqNpFDaal598jbpd1A14gXwDE6gekTqJgxOAGcq78B8YnP7claymQVFy2GTwgb",
+                    imageUrl: "https:\/\/images.unsplash.com\/photo-1552902019-ebcd97aa9aa0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80",
+                    normalDayPrice: 3899,
+                    holidayPrice: 4000,
+                    name: "Deluxe Twin Room",
+                },
+            ],
+        };
+        let totalCost = 0;
+        roomDetail.items.forEach((item) => {
+            totalCost += item.normalDayPrice;
+        });
+        console.log(`這位客戶一共花了${totalCost}元`);
+
+        /** ---------------------------------- **/
+        /**   作業 8：員工加薪   **/
+        let salaryData = {
+            company: "circle center",
+            bossName: "Casper",
+            staff: [
+                {
+                    name: "Bob",
+                    salary: 32000,
+                },
+                {
+                    name: "Jack",
+                    salary: 28000,
+                },
+            ],
+        };
+        salaryData.staff.forEach((item) => {
+            if (item.salary < 40000) {
+                item.salary = 40000;
+            }
+        });
+
+        /** ---------------------------------- **/
+        /**   作業 9：以文字敘述 JSON 格式 API 的資料集內容   **/
+        // 輕軌車站出入口基本資料 https://api.kcg.gov.tw/api/service/get/4eba94e0-323c-4530-95a6-dd276bd8765d
+        // 最外層為物件，裡頭包括「contentType、isImage、data、id、message、success」這六個屬性。
+        // 其中 data 屬性的值為包了許多物件的陣列，也是輕軌車站出入口基本資料；每個物件都有「seq、站序車站代碼、車站中文站名、車站英文站名、站位地點、備註」等屬性。
+
+        /** ---------------------------------- **/
+        /**   作業 10 填答區開始   **/
+        // Whimsical BMI 流程圖
+        // https://whimsical.com/bmi-Fv7gB7JrnYGtojEXkkvNGm
+    </script>
+</html>
