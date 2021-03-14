@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="./css/main.min.css" />
+        <title>hw5</title>
+    </head>
+    <body>
+        <section class="l-wrap l-wrap--gy">
+            <div class="l-container">
+                <div class="l-container__content">
+                    <div class="l-searchBar">
+                        <div class="c-from">
+                            <div class="c-from__content">
+                                <div class="o-selectBox">
+                                    <select name="" id="">
+                                        <option value="">全部地區</option>
+                                        <option value="">臺北市</option>
+                                        <option value="">桃園市</option>
+                                        <option value="">臺中市</option>
+                                        <option value="">臺南市</option>
+                                        <option value="">高雄市</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="c-from__result">本次搜尋共 6 筆資料</div>
+                        </div>
+                    </div>
+                    <div class="l-cards" data-projects>
+                        <!-- <div class="l-cards__item">
+                            <div class="c-card">
+                                <div class="c-card__tag">
+                                    <p>台中</p>
+                                </div>
+                                <div class="c-card__kv">
+                                    <img
+                                        src="https://images.unsplash.com/photo-1615554944533-8b6eca46b81b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1190&q=80"
+                                        alt=""
+                                    />
+                                </div>
+                                <div class="c-card__badge">9.3</div>
+                                <div class="c-card__content">
+                                    <div class="c-card__tit c-card__tit--underline">綠島自由行套裝行程</div>
+                                    <div class="c-card__txt">
+                                        <p>
+                                            嚴選超高CP值綠島自由行套裝行程，多種綠島套裝組合，提供台東綠島來回船票、綠島環島機車、綠島民宿住宿，行程加贈『綠島浮潛體驗』以及『綠島生態導覽』，讓你用輕鬆的綠島套裝自由行，也能深度認識綠島在地文化。
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="c-card__merchandise">
+                                    <div class="l-merchandise">
+                                        <div class="o-hint">
+                                            <i class="o-hint__ico o-hint__ico--info"></i>
+                                            <div class="o-hint__txt">剩下最後 8 組</div>
+                                        </div>
+                                        <div class="o-price">
+                                            <p class="o-price__currency">TWD</p>
+                                            <p class="o-price__num">$1,280</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        axios
+            .get("./data/hw5.json")
+            .then((res) => {
+                let allData = res.data;
+                showInfo(allData);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
+        function showInfo(info) {
+            info.forEach((item) => {
+                document.querySelector("[data-projects]").innerHTML += `<div class="l-cards__item">
+                        <div class="c-card">
+                            <div class="c-card__tag">
+                                <p>${item.area}</p>
+                            </div>
+                            <div class="c-card__kv">
+                                <img
+                                    src="${item.imgUrl}"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="c-card__badge">${item.rate}</div>
+                            <div class="c-card__content">
+                                <div class="c-card__tit c-card__tit--underline">${item.name}</div>
+                                <div class="c-card__txt">
+                                    <p>${item.description}</p>
+                                </div>
+                            </div>
+                            <div class="c-card__merchandise">
+                                    <div class="l-merchandise">
+                                        <div class="o-hint">
+                                            <i class="o-hint__ico o-hint__ico--info"></i>
+                                            <div class="o-hint__txt">剩下最後 ${item.group} 組</div>
+                                        </div>
+                                        <div class="o-price">
+                                            <p class="o-price__currency">TWD</p>
+                                            <p class="o-price__num">$${item.price}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>`;
+            });
+        }
+    </script>
+</html>
