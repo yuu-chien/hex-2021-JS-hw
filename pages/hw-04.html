@@ -46,10 +46,9 @@
                     height = Math.pow(h / 100, 2);
                 bmi = (weight / height).toFixed(2);
                 //console.log(bmi);
-
                 if (bmi < 18.5) {
                     showHint("overThin");
-                } else if (bmi <= 18.5 && bmi < 24) {
+                } else if (bmi >= 18.5 && bmi < 24) {
                     showHint("normal");
                 } else if (24 <= bmi && bmi < 27) {
                     showHint("overWeight");
