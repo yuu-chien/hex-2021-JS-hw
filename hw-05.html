@@ -10,6 +10,39 @@
         <title>hw5</title>
     </head>
     <body>
+        <section class="">
+            <div class="l-container">
+                <div class="l-container__content">
+                    <div class="c-billboard">
+                        <div class="l-title">
+                            <div class="c-title c-title--underline">
+                                <i class="c-title__ico c-title__ico--addCircle"></i>
+                                <div class="c-title__txt">新增旅遊套票</div>
+                            </div>
+                        </div>
+                        <div class="l-form">
+                            <div class="l-form__title">
+                                <label for="">套票名稱</label>
+                            </div>
+                            <div class="l-form__content">
+                                <div class="c-form">
+                                    <div class="c-form__content">
+                                        <input class="o-inputBox" type="text" placeholder="請填寫套票名稱" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="l-actions">
+                        <div class="l-actions__item">
+                            <a href="#" class="o-btn">
+                                <span class="o-btn__txt">新增套票</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section class="l-wrap l-wrap--gy">
             <div class="l-container">
                 <div class="l-container__content">
@@ -84,38 +117,39 @@
 
         function showInfo(info) {
             info.forEach((item) => {
-                document.querySelector("[data-projects]").innerHTML += `<div class="l-cards__item">
-                        <div class="c-card">
-                            <div class="c-card__tag">
-                                <p>${item.area}</p>
+                document.querySelector("[data-projects]").innerHTML += `
+                <div class="l-cards__item">
+                    <div class="c-card">
+                        <div class="c-card__tag">
+                            <p>${item.area}</p>
+                        </div>
+                        <div class="c-card__kv">
+                            <img
+                                src="${item.imgUrl}"
+                                alt=""
+                            />
+                        </div>
+                        <div class="c-card__badge">${item.rate}</div>
+                        <div class="c-card__content">
+                            <div class="c-card__tit c-card__tit--underline">${item.name}</div>
+                            <div class="c-card__txt">
+                                <p>${item.description}</p>
                             </div>
-                            <div class="c-card__kv">
-                                <img
-                                    src="${item.imgUrl}"
-                                    alt=""
-                                />
-                            </div>
-                            <div class="c-card__badge">${item.rate}</div>
-                            <div class="c-card__content">
-                                <div class="c-card__tit c-card__tit--underline">${item.name}</div>
-                                <div class="c-card__txt">
-                                    <p>${item.description}</p>
-                                </div>
-                            </div>
-                            <div class="c-card__merchandise">
-                                    <div class="l-merchandise">
-                                        <div class="o-hint">
-                                            <i class="o-hint__ico o-hint__ico--info"></i>
-                                            <div class="o-hint__txt">剩下最後 ${item.group} 組</div>
-                                        </div>
-                                        <div class="o-price">
-                                            <p class="o-price__currency">TWD</p>
-                                            <p class="o-price__num">$${item.price}</p>
-                                        </div>
+                        </div>
+                        <div class="c-card__merchandise">
+                                <div class="l-merchandise">
+                                    <div class="o-hint">
+                                        <i class="o-hint__ico o-hint__ico--info"></i>
+                                        <div class="o-hint__txt">剩下最後 ${item.group} 組</div>
+                                    </div>
+                                    <div class="o-price">
+                                        <p class="o-price__currency">TWD</p>
+                                        <p class="o-price__num">$${item.price}</p>
                                     </div>
                                 </div>
-                        </div>
-                    </div>`;
+                            </div>
+                    </div>
+                </div>`;
             });
         }
     </script>
