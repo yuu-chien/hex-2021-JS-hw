@@ -33,12 +33,12 @@
                                     <!-- 套票名稱 -->
                                     <div class="l-form">
                                         <div class="l-form__title">
-                                            <label for="">套票名稱</label>
+                                            <label for="ticketName">套票名稱</label>
                                         </div>
                                         <div class="l-form__content">
                                             <div class="c-form">
                                                 <div class="c-form__content">
-                                                    <input class="o-inputBox" type="text" placeholder="請填寫套票名稱" />
+                                                    <input id="ticketName" name="ticketName" class="o-inputBox" type="text" placeholder="請填寫套票名稱" />
                                                 </div>
                                             </div>
                                         </div>
@@ -46,12 +46,12 @@
                                     <!-- 圖片網址 -->
                                     <div class="l-form">
                                         <div class="l-form__title">
-                                            <label for="">圖片網址</label>
+                                            <label for="ticketImgUrl">圖片網址</label>
                                         </div>
                                         <div class="l-form__content">
                                             <div class="c-form">
                                                 <div class="c-form__content">
-                                                    <input class="o-inputBox" type="text" placeholder="請填寫圖片網址" />
+                                                    <input id="ticketImgUrl" name="ticketImgUrl" class="o-inputBox" type="text" placeholder="請填寫圖片網址" />
                                                 </div>
                                             </div>
                                         </div>
@@ -59,13 +59,13 @@
                                     <!-- 景點地區 -->
                                     <div class="l-form">
                                         <div class="l-form__title">
-                                            <label for="">景點地區</label>
+                                            <label for="ticketArea">景點地區</label>
                                         </div>
                                         <div class="l-form__content">
                                             <div class="c-form">
                                                 <div class="c-form__content">
                                                     <div class="o-selectBox o-selectBox--underline">
-                                                        <select name="" id="" class="o-selectBox__input o-selectBox__input--underline">
+                                                        <select id="ticketArea" name="ticketArea" class="o-selectBox__input o-selectBox__input--underline">
                                                             <option value="">請選擇景點地區</option>
                                                             <option value="">臺北市</option>
                                                             <option value="">桃園市</option>
@@ -81,12 +81,12 @@
                                     <!-- 套票金額 -->
                                     <div class="l-form">
                                         <div class="l-form__title">
-                                            <label for="">套票金額</label>
+                                            <label for="ticketPrice">套票金額</label>
                                         </div>
                                         <div class="l-form__content">
                                             <div class="c-form">
                                                 <div class="c-form__content">
-                                                    <input class="o-inputBox" type="number" placeholder="請填寫套票金額" />
+                                                    <input id="ticketPrice" name="ticketPrice" class="o-inputBox" type="number" placeholder="請填寫套票金額" />
                                                 </div>
                                             </div>
                                         </div>
@@ -94,12 +94,12 @@
                                     <!-- 套票組數 -->
                                     <div class="l-form">
                                         <div class="l-form__title">
-                                            <label for="">套票組數</label>
+                                            <label for="ticketGroup">套票組數</label>
                                         </div>
                                         <div class="l-form__content">
                                             <div class="c-form">
                                                 <div class="c-form__content">
-                                                    <input class="o-inputBox" type="number" placeholder="請填寫套票組數" />
+                                                    <input id="ticketGroup" name="ticketGroup" class="o-inputBox" type="number" placeholder="請填寫套票組數" />
                                                 </div>
                                             </div>
                                         </div>
@@ -107,12 +107,12 @@
                                     <!-- 套票星級 -->
                                     <div class="l-form">
                                         <div class="l-form__title">
-                                            <label for="">套票星級</label>
+                                            <label for="ticketRate">套票星級</label>
                                         </div>
                                         <div class="l-form__content">
                                             <div class="c-form">
                                                 <div class="c-form__content">
-                                                    <input class="o-inputBox" type="number" max="10" placeholder="請填寫套票星級" />
+                                                    <input id="ticketRate" name="ticketRate" class="o-inputBox" type="number" max="10" placeholder="請填寫套票星級" />
                                                 </div>
                                             </div>
                                         </div>
@@ -120,19 +120,19 @@
                                     <!-- 套票描述 -->
                                     <div class="l-form">
                                         <div class="l-form__title">
-                                            <label for="">套票描述</label>
+                                            <label for="ticketDec">套票描述</label>
                                         </div>
                                         <div class="l-form__content">
                                             <div class="c-form">
                                                 <div class="c-form__content">
-                                                    <textarea class="o-textarea" name="" id="" cols="" rows="" maxlength="100" placeholder="請填寫套票描述（限 100 字）"></textarea>
+                                                    <textarea id="ticketDec" name="ticketDec" class="o-textarea" cols="" rows="" maxlength="100" placeholder="請填寫套票描述（限 100 字）"></textarea>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="l-actions">
                                         <div class="l-actions__item">
-                                            <a href="#" class="o-btn">
+                                            <a href="#" class="o-btn" data-add>
                                                 <span class="o-btn__txt">新增套票</span>
                                             </a>
                                         </div>
@@ -161,7 +161,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="c-from__result">本次搜尋共 6 筆資料</div>
+                            <div class="c-from__result">本次搜尋共 <span data-totalNum></span> 筆資料</div>
                         </div>
                     </div>
                     <div class="l-cards" data-projects>
@@ -204,30 +204,32 @@
             </div>
         </section>
     </body>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
+        let allData = {};
         axios
             .get("./data/hw5.json")
             .then((res) => {
-                let allData = res.data;
-                showInfo(allData);
+                allData = res.data;
+                init(allData);
             })
             .catch((err) => {
                 console.log(err);
             });
 
-        function showInfo(info) {
+        // 初始化
+        function init(info) {
             info.forEach((item) => {
                 document.querySelector("[data-projects]").innerHTML += `
                 <div class="l-cards__item">
-                    <div class="c-card">
+                    <a href="" class="c-card">
                         <div class="c-card__tag">
                             <p>${item.area}</p>
                         </div>
                         <div class="c-card__kv">
                             <img
                                 src="${item.imgUrl}"
-                                alt=""
+                                alt="${item.name}"
                             />
                         </div>
                         <div class="c-card__badge">${item.rate}</div>
@@ -238,20 +240,55 @@
                             </div>
                         </div>
                         <div class="c-card__merchandise">
-                                <div class="l-merchandise">
-                                    <div class="o-hint">
-                                        <i class="o-hint__ico o-hint__ico--info"></i>
-                                        <div class="o-hint__txt">剩下最後 ${item.group} 組</div>
-                                    </div>
-                                    <div class="o-price">
-                                        <p class="o-price__currency">TWD</p>
-                                        <p class="o-price__num">$${item.price}</p>
-                                    </div>
+                            <div class="l-merchandise">
+                                <div class="o-hint">
+                                    <i class="o-hint__ico o-hint__ico--info"></i>
+                                    <div class="o-hint__txt">剩下最後 ${item.group} 組</div>
+                                </div>
+                                <div class="o-price">
+                                    <p class="o-price__currency">TWD</p>
+                                    <p class="o-price__num">$${item.price}</p>
                                 </div>
                             </div>
-                    </div>
+                        </div>
+                    </a>
                 </div>`;
             });
+            document.querySelector("[data-totalNum]").textContent = info.length;
         }
+
+        let addBtn = document.querySelector("[data-add]");
+
+        addBtn.addEventListener("click", () => {
+            let ticketName = document.querySelector("#ticketName").value,
+                ticketImgUrl = document.querySelector("#ticketImgUrl").value,
+                ticketArea = document.querySelector("#ticketArea").value,
+                ticketPrice = document.querySelector("#ticketPrice").value,
+                ticketGroup = document.querySelector("#ticketGroup").value,
+                ticketRate = document.querySelector("#ticketRate").value,
+                ticketDec = document.querySelector("#ticketDec").value;
+            let addInfo = [
+                {
+                    name: "",
+                    imgUrl: "",
+                    area: "",
+                    price: 0,
+                    group: 0,
+                    rate: 0,
+                    description: "",
+                },
+            ];
+            console.log(ticketName);
+            addInfo.name = ticketName;
+            addInfo.imgUrl = ticketImgUrl;
+            addInfo.area = ticketArea;
+            addInfo.price = ticketPrice;
+            addInfo.group = ticketGroup;
+            addInfo.rate = ticketRate;
+            addInfo.description = ticketDec;
+            allData.push(addInfo);
+            console.log("allData", allData);
+            init(addInfo);
+        });
     </script>
 </html>
