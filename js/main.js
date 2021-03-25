@@ -4,7 +4,8 @@
 // javaScript 程式碼建議可以和 HTML 分開放在 js 檔案中 V
 
 let allData,
-    cardsWrap = document.querySelector("[data-projects]");
+    cardsWrap = document.querySelector("[data-projects]"),
+    filterArea = document.querySelector("[data-filterArea]");
 
 axios
     .get("./data/hw5.json")
@@ -91,4 +92,8 @@ addBtn.addEventListener("click", () => {
     //console.log("allData", allData);
     // 需改成 init(allData);
     init(addInfo);
+});
+
+filterArea.addEventListener('change', (e) => {
+    console.log(event.target.value);
 });
