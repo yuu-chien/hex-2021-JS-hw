@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="./css/main.min.css" />
+        <title>Let's Travel</title>
+    </head>
+
+    <body>
+        <section class="l-wrap">
+            <div class="l-container">
+                <div class="l-container__content l-container__content--tie">
+                    <div class="c-billboard">
+                        <div class="c-billboard__content">
+                            <div class="l-sketch l-sketch--2col">
+                                <div class="l-sketch__item">
+                                    <img src="./images/kv/graphic_2x.png" alt="Let's Travel" />
+                                    <img src="./images/kv/sign.png" alt="Let's Travel" class="u-hidden-pc" />
+                                </div>
+                                <div class="l-sketch__item">
+                                    <div class="l-title">
+                                        <div class="c-title c-title--underline">
+                                            <i class="c-title__ico c-title__ico--addCircle"></i>
+                                            <div class="c-title__txt">新增旅遊套票</div>
+                                        </div>
+                                    </div>
+                                    <!-- 套票名稱 -->
+                                    <div class="l-form">
+                                        <div class="l-form__title">
+                                            <label for="ticketName">套票名稱</label>
+                                        </div>
+                                        <div class="l-form__content">
+                                            <div class="c-form">
+                                                <div class="c-form__content">
+                                                    <input id="ticketName" name="ticketName" class="o-inputBox" type="text" placeholder="請填寫套票名稱" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 圖片網址 -->
+                                    <div class="l-form">
+                                        <div class="l-form__title">
+                                            <label for="ticketImgUrl">圖片網址</label>
+                                        </div>
+                                        <div class="l-form__content">
+                                            <div class="c-form">
+                                                <div class="c-form__content">
+                                                    <input id="ticketImgUrl" name="ticketImgUrl" class="o-inputBox" type="text" placeholder="請填寫圖片網址" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 景點地區 -->
+                                    <div class="l-form">
+                                        <div class="l-form__title">
+                                            <label for="ticketArea">景點地區</label>
+                                        </div>
+                                        <div class="l-form__content">
+                                            <div class="c-form">
+                                                <div class="c-form__content">
+                                                    <div class="o-selectBox o-selectBox--underline">
+                                                        <select id="ticketArea" name="ticketArea" class="o-selectBox__input o-selectBox__input--underline">
+                                                            <option value="">請選擇景點地區</option>
+                                                            <option value="">台北市</option>
+                                                            <option value="">桃園市</option>
+                                                            <option value="">台中市</option>
+                                                            <option value="">台南市</option>
+                                                            <option value="">高雄市</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 套票金額 -->
+                                    <div class="l-form">
+                                        <div class="l-form__title">
+                                            <label for="ticketPrice">套票金額</label>
+                                        </div>
+                                        <div class="l-form__content">
+                                            <div class="c-form">
+                                                <div class="c-form__content">
+                                                    <input id="ticketPrice" name="ticketPrice" class="o-inputBox" type="number" placeholder="請填寫套票金額" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 套票組數 -->
+                                    <div class="l-form">
+                                        <div class="l-form__title">
+                                            <label for="ticketGroup">套票組數</label>
+                                        </div>
+                                        <div class="l-form__content">
+                                            <div class="c-form">
+                                                <div class="c-form__content">
+                                                    <input id="ticketGroup" name="ticketGroup" class="o-inputBox" type="number" placeholder="請填寫套票組數" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 套票星級 -->
+                                    <div class="l-form">
+                                        <div class="l-form__title">
+                                            <label for="ticketRate">套票星級</label>
+                                        </div>
+                                        <div class="l-form__content">
+                                            <div class="c-form">
+                                                <div class="c-form__content">
+                                                    <input id="ticketRate" name="ticketRate" class="o-inputBox" type="number" max="10" placeholder="請填寫套票星級" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 套票描述 -->
+                                    <div class="l-form">
+                                        <div class="l-form__title">
+                                            <label for="ticketDec">套票描述</label>
+                                        </div>
+                                        <div class="l-form__content">
+                                            <div class="c-form">
+                                                <div class="c-form__content">
+                                                    <textarea id="ticketDec" name="ticketDec" class="o-textarea" cols="" rows="" maxlength="100" placeholder="請填寫套票描述（限 100 字）"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="l-actions">
+                                        <div class="l-actions__item">
+                                            <a href="#" class="o-btn" data-add>
+                                                <span class="o-btn__txt">新增套票</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="l-wrap l-wrap--gy">
+            <div class="l-container">
+                <div class="l-container__content">
+                    <div class="l-searchBar">
+                        <div class="c-from">
+                            <div class="c-from__content">
+                                <div class="o-selectBox">
+                                    <select name="" id="" class="o-selectBox__input" data-filterArea>
+                                        <option value="all">全部地區</option>
+                                        <option value="台北">台北市</option>
+                                        <option value="桃園">桃園市</option>
+                                        <option value="台中">台中市</option>
+                                        <option value="台南">台南市</option>
+                                        <option value="高雄">高雄市</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="c-from__result">本次搜尋共 <span data-totalNum></span> 筆資料</div>
+                        </div>
+                    </div>
+                    <div class="l-cards" data-projects></div>
+                </div>
+            </div>
+        </section>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/main-hw6.js"></script>
+</html>
