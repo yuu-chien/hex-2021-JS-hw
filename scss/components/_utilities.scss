@@ -1,0 +1,6 @@
+.u-hidden-pc {
+    display: none;
+    @include laptop {
+        display: block;
+    }
+}

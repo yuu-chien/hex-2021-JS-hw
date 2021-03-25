@@ -1,0 +1,133 @@
+input,
+select,
+textarea {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 38px;
+    margin: 0;
+    padding: 8px 12px;
+    border-radius: 4px;
+
+    &::placeholder {
+        color: #818a91;
+    }
+
+    @include laptop {
+        min-width: 255px;
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    margin: 0;
+}
+
+.o-selectBox {
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        display: block;
+        width: 16px;
+        height: 16px;
+        background: url(../../images/icon/arrow/more.svg) no-repeat center center;
+    }
+
+    &__input {
+        color: #818a91;
+        background: #fff;
+        border: 1px solid #ced4da;
+
+        &--underline {
+            background-color: #fafafa;
+            border: none;
+            border-bottom: 2px solid #00807e;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+    }
+}
+
+.o-inputBox {
+    background-color: #fafafa;
+    border: none;
+    border-bottom: 2px solid #00807e;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.o-textarea {
+    background-color: #fafafa;
+    border: none;
+    border-bottom: 2px solid #00807e;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    @include laptop {
+        min-height: 111px;
+    }
+}
+
+.c-from {
+    &__title {
+        color: #00807e;
+        font-weight: bold;
+    }
+
+    &__content {
+    }
+
+    &__content + &__result {
+        margin-top: 10px;
+    }
+
+    &__result {
+        display: block;
+        color: #818a91;
+        text-align: center;
+    }
+
+    @include laptop {
+        display: flex;
+        align-items: center;
+
+        &__content + &__result {
+            margin-top: 0;
+            margin-left: 30px;
+        }
+
+        &__result {
+            text-align: left;
+        }
+    }
+}
+
+.l-form {
+    &__title + &__content {
+        margin-top: 6px;
+    }
+
+    & + & {
+        margin-top: 16px;
+    }
+
+    @include laptop {
+        display: flex;
+        align-items: center;
+
+        &__title + &__content {
+            margin-top: 0;
+            margin-left: 30px;
+        }
+    }
+}

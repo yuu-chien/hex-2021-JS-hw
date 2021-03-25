@@ -1,0 +1,11 @@
+@mixin laptop() {
+    @media all and (min-width: 1025px) {
+        @content;
+    }
+}
+
+// @mixin phone() {
+//     @media all and (min-width: 361px) {
+//         @content;
+//     }
+// }

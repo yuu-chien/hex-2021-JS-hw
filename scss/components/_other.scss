@@ -1,0 +1,42 @@
+.o-hint {
+    display: flex;
+    align-items: center;
+
+    &__ico {
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        &--info {
+            background: url(../../images/icon/info.svg);
+        }
+    }
+
+    &__txt {
+        font-weight: bold;
+        color: #00807e;
+    }
+
+    &__ico + &__txt {
+        margin-left: 6px;
+    }
+}
+
+.o-price {
+    display: flex;
+    align-items: center;
+    color: #00807e;
+    &__currency {
+        font-weight: bold;
+    }
+
+    &__num {
+        font-size: 32px;
+    }
+
+    &__currency + &__num {
+        margin-left: 4px;
+    }
+}

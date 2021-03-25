@@ -1,0 +1,19 @@
+.o-btn {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 160px;
+    padding: 10px;
+    text-align: center;
+    background: #00807e;
+    border-radius: 5px;
+
+    &__txt {
+        color: #ffffff;
+    }
+}
+
+.l-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin: 16px 0 0 0;
+}
