@@ -93,7 +93,3 @@ addBtn.addEventListener("click", () => {
     // 需改成 init(allData);
     init(addInfo);
 });
-
-filterArea.addEventListener('change', (e) => {
-    console.log(event.target.value);
-});
