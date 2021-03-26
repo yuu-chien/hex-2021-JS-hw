@@ -7,6 +7,7 @@ axios
     .get("../data/project-tickets.json")
     .then((res) => {
         allData = res.data;
+        console.log(allData);
         init(allData);
     })
     .catch((err) => {
@@ -87,6 +88,7 @@ addBtn.addEventListener("click", () => {
     init(allData);
 });
 
+
 // 地區篩選
 filterArea.addEventListener("change", (e) => {
     let areaName = e.target.value;
@@ -96,4 +98,36 @@ filterArea.addEventListener("change", (e) => {
     init(filterData);
 });
 
+let chartData;
+function showChart() {
+    allData.forEach((item) => {
+        if (chartData.area === undefined) {
+            chartData[item.area] = 1;
+        };
+        console.log('chartData', chartData)
+    });
+};
+showChart(allData)
+
 // C3 Chart
+let chart = c3.generate({
+    bindto: '.c-cart',
+    data: {
+        columns: [
+            ['data1', 30],
+            ['data2', 120],
+        ],
+        names: {
+            data1: 'Name 1',
+            data2: 'Name 2'
+        },
+        type: 'donut',
+    },
+    size: {
+        width: 160,
+        height: 184,
+    },
+    donut: {
+        title: "套票地區比重"
+    }
+});
