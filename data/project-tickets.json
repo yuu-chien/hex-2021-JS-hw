@@ -13,7 +13,7 @@
         "id": 1,
         "name": "環島醉茫茫浪流連",
         "imgUrl": "https://images.unsplash.com/photo-1530034424313-9be028eeae5a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80",
-        "area": "臺北",
+        "area": "台北",
         "description": "忙忙的生活需要來點茫茫！一日環島喝遍本公司精選國內五座酒廠。",
         "group": 99,
         "price": 2400,
@@ -23,10 +23,30 @@
         "id": 2,
         "name": "谷關溫泉求璋 5 日",
         "imgUrl": "https://images.unsplash.com/photo-1535530992830-e25d07cfa780?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80",
-        "area": "臺中",
+        "area": "台中",
         "description": "谷關溫泉泉質乃屬碳酸泉，含有硫化物及鹽分。據傳日本明治天皇泡完谷關溫泉後，一舉得「子」，故有了「生男湯」的傳說。",
         "group": 20,
         "price": 1765,
         "rate": 7
+    },
+    {
+        "id": 3,
+        "name": "王功漁火碼頭夕景套餐",
+        "imgUrl": "https://images.unsplash.com/photo-1596563976827-dedbcd2bc57c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        "area": "彰化",
+        "description": "王功地區農漁業特產豐富，王功蚵全臺聞名，富麗漁村景象，吸引許多觀光客前來采風。",
+        "group": 10,
+        "price": 999,
+        "rate": 3
+    },
+    {
+        "id": 4,
+        "name": "田寮登月計畫",
+        "imgUrl": "https://www.taiwan.net.tw/pic.ashx?qp=1/big_scenic_spots/pic_631_10.jpg&sizetype=3",
+        "area": "高雄",
+        "description": "田寮月世界位於田寮區崇德與古亭兩里之間，因是不毛之地，有著淒涼荒漠之美，像月球之景象而名聞遐邇。",
+        "group": 7,
+        "price": 6666,
+        "rate": 1
     }
 ]
