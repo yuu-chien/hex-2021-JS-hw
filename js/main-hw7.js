@@ -1,4 +1,3 @@
-
 let allData,
     cardsWrap = document.querySelector("[data-projects]"),
     filterArea = document.querySelector("[data-filterArea]");
@@ -7,8 +6,9 @@ axios
     .get("../data/project-tickets.json")
     .then((res) => {
         allData = res.data;
-        console.log(allData);
+        //console.log(allData);
         init(allData);
+        //showChart(allData);
     })
     .catch((err) => {
         console.log(err);
@@ -55,8 +55,8 @@ function init(info) {
     document.querySelector("[data-totalNum]").textContent = info.length;
 }
 
+// 增加套票
 let addBtn = document.querySelector("[data-add]");
-
 addBtn.addEventListener("click", () => {
     let ticketName = document.querySelector("#ticketName").value,
         ticketImgUrl = document.querySelector("#ticketImgUrl").value,
@@ -76,7 +76,6 @@ addBtn.addEventListener("click", () => {
             description: "",
         },
     ];
-    console.log(ticketName);
     addInfo.name = ticketName;
     addInfo.imgUrl = ticketImgUrl;
     addInfo.area = ticketArea;
@@ -88,46 +87,47 @@ addBtn.addEventListener("click", () => {
     init(allData);
 });
 
-
 // 地區篩選
 filterArea.addEventListener("change", (e) => {
     let areaName = e.target.value;
-    let filterData = allData.filter(function(item) {
+    let filterData = allData.filter(function (item) {
         return item.area == areaName;
     });
     init(filterData);
 });
 
-let chartData;
-function showChart() {
+let chartData = {};
+function showChart(allData) {
     allData.forEach((item) => {
-        if (chartData.area === undefined) {
+        if (chartData.area == undefined) {
             chartData[item.area] = 1;
-        };
-        console.log('chartData', chartData)
+            console.log("chartData", chartData);
+        } else if (chartData.area == item.area) {
+            chartData[item.area] += 1;
+            console.log("chartData", chartData);
+        }
     });
-};
-showChart(allData)
+}
 
 // C3 Chart
 let chart = c3.generate({
-    bindto: '.c-cart',
+    bindto: ".c-cart",
     data: {
         columns: [
-            ['data1', 30],
-            ['data2', 120],
+            ["data1", 30],
+            ["data2", 120],
         ],
         names: {
-            data1: 'Name 1',
-            data2: 'Name 2'
+            data1: "Name 1",
+            data2: "Name 2",
         },
-        type: 'donut',
+        type: "donut",
     },
     size: {
         width: 160,
         height: 184,
     },
     donut: {
-        title: "套票地區比重"
-    }
+        title: "套票地區比重",
+    },
 });
