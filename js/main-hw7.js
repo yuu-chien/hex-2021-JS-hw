@@ -1,6 +1,6 @@
 let allData,
-    cardsWrap = document.querySelector("[data-projects]"),
-    filterArea = document.querySelector("[data-filterArea]");
+    $cardsWrap = document.querySelector("[data-projects]"),
+    $filterArea = document.querySelector("[data-filterArea]");
 
 axios
     .get("../data/project-tickets.json")
@@ -8,7 +8,7 @@ axios
         allData = res.data;
         //console.log(allData);
         init(allData);
-        //showChart(allData);
+        showChart(allData);
     })
     .catch((err) => {
         console.log(err);
@@ -16,9 +16,9 @@ axios
 
 // 初始化
 function init(info) {
-    cardsWrap.innerHTML = "";
+    $cardsWrap.innerHTML = "";
     info.forEach((item) => {
-        cardsWrap.innerHTML += `
+        $cardsWrap.innerHTML += `
         <div class="l-cards__item">
             <a href="" class="c-card">
                 <div class="c-card__tag">
@@ -56,8 +56,8 @@ function init(info) {
 }
 
 // 增加套票
-let addBtn = document.querySelector("[data-add]");
-addBtn.addEventListener("click", () => {
+let $addBtn = document.querySelector("[data-add]");
+$addBtn.addEventListener("click", () => {
     let ticketName = document.querySelector("#ticketName").value,
         ticketImgUrl = document.querySelector("#ticketImgUrl").value,
         ticketArea = document.querySelector("#ticketArea").value,
@@ -88,46 +88,55 @@ addBtn.addEventListener("click", () => {
 });
 
 // 地區篩選
-filterArea.addEventListener("change", (e) => {
+$filterArea.addEventListener("change", (e) => {
     let areaName = e.target.value;
-    let filterData = allData.filter(function (item) {
+    let filterData = allData.filter(function(item) {
         return item.area == areaName;
     });
     init(filterData);
 });
 
-let chartData = {};
+// C3 Chart 資料準備
+let totalObj = {};
+let chartData = [];
 function showChart(allData) {
     allData.forEach((item) => {
-        if (chartData.area == undefined) {
-            chartData[item.area] = 1;
-            console.log("chartData", chartData);
-        } else if (chartData.area == item.area) {
-            chartData[item.area] += 1;
-            console.log("chartData", chartData);
+
+        if (totalObj[item.area] == undefined) {
+            totalObj[item.area] = 1;
+        } else {
+            totalObj[item.area] += 1;
         }
     });
-}
+    console.log('totalObj', totalObj);  // {高雄: 2, 台北: 1, 台中: 1, 彰化: 1}
 
-// C3 Chart
-let chart = c3.generate({
-    bindto: ".c-cart",
-    data: {
-        columns: [
-            ["data1", 30],
-            ["data2", 120],
-        ],
-        names: {
-            data1: "Name 1",
-            data2: "Name 2",
+    let areaAry = Object.keys(totalObj);
+    console.log('areaAry', areaAry);    // ["高雄", "台北", "台中", "彰化"]
+
+    areaAry.forEach((item) => {
+        let tempObj = {};
+        let tempAry = [];
+        tempObj.name = item;
+        tempObj.num = totalObj[item];
+        tempAry.push(tempObj)
+        chartData.push(tempObj);
+    });
+
+
+    console.log('chartData', chartData);
+    // C3 Chart
+    c3.generate({
+        bindto: ".c-cart",
+        data: {
+            json: chartData,
+            type: "donut",
         },
-        type: "donut",
-    },
-    size: {
-        width: 160,
-        height: 184,
-    },
-    donut: {
-        title: "套票地區比重",
-    },
-});
+        size: {
+            width: 160,
+            height: 184,
+        },
+        donut: {
+            title: "套票地區比重",
+        },
+    });
+}
