@@ -108,35 +108,39 @@ function showChart(allData) {
             totalObj[item.area] += 1;
         }
     });
-    console.log('totalObj', totalObj);  // {高雄: 2, 台北: 1, 台中: 1, 彰化: 1}
+    // console.log('totalObj', totalObj);  // {高雄: 2, 台北: 1, 台中: 1, 彰化: 1}
 
-    let areaAry = Object.keys(totalObj);
-    console.log('areaAry', areaAry);    // ["高雄", "台北", "台中", "彰化"]
+    // let areaAry = Object.keys(totalObj);
+    // console.log('areaAry', areaAry);    // ["高雄", "台北", "台中", "彰化"]
 
-    areaAry.forEach((item) => {
-        let tempObj = {};
-        let tempAry = [];
-        tempObj.name = item;
-        tempObj.num = totalObj[item];
-        tempAry.push(tempObj)
-        chartData.push(tempObj);
-    });
+    // areaAry.forEach((item) => {
+    //     let tempObj = {};
+    //     let tempAry = [];
+    //     tempObj.name = item;
+    //     tempObj.num = totalObj[item];
+    //     tempAry.push(tempObj)
+    //     chartData.push(tempObj);
+    // });
+    //console.log('chartData', chartData);
 
-
-    console.log('chartData', chartData);
     // C3 Chart
     c3.generate({
         bindto: ".c-cart",
         data: {
-            json: chartData,
+            json: [totalObj],
+            keys: {
+                value: ['高雄', '台北', '台中', '彰化']
+            },
             type: "donut",
         },
+        color: { pattern: ['#64C3BF', '#00807E', '#00000029', '#E68618'] },
         size: {
-            width: 160,
+            width: 360,
             height: 184,
         },
         donut: {
             title: "套票地區比重",
+            width: 8
         },
     });
 }
