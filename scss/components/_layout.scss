@@ -35,18 +35,36 @@
 }
 
 .l-searchBar {
+    margin: 36px 0;
 
-    //margin-bottom: 50px;
-
-    &__content {}
+    &__content {
+        width: 100%;
+    }
 
     &__chart {
-        margin: 36px 0;
+        display: flex;
+        justify-content: center;
+        margin-top: 24px;
+    }
+
+    &--apart {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
     @include laptop {
-        display: flex;
-        //margin-bottom: 52px;
+        &__content {
+            width: auto;
+        }
+
+        &__chart {
+            margin-top: 0;
+        }
+
+        &--apart {
+            justify-content: space-between;
+        }
     }
 }
 
