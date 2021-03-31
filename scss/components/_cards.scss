@@ -98,8 +98,8 @@
     }
 
     @include laptop {
-        max-width: 350px;
-        width: auto;
+        width: 350px;
+        //width: auto;
     }
 }
 
