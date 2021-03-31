@@ -1,14 +1,9 @@
-// 新增套票後需將表單中的值清空，新增套票沒有依照填入的值顯示（addInfo宣告時外層可以不需陣列，init(addInfo) 需改成 init(allData) 才會將陣列渲染到畫面上）
-// init 的函式在執行 forEach 前可以加上 document.querySelector(“[data-projects]”).innerHTML = "" 先清空先前渲染的 HTML
-// 篩選地區功能沒有正確篩選出特定地區的資料
-// javaScript 程式碼建議可以和 HTML 分開放在 js 檔案中 V
-
 let allData,
     cardsWrap = document.querySelector("[data-projects]"),
     filterArea = document.querySelector("[data-filterArea]");
 
 axios
-    .get("../data/project-tickets.json")
+    .get("./data/project-tickets.json")
     .then((res) => {
         allData = res.data;
         init(allData);
@@ -20,7 +15,7 @@ axios
 // 初始化
 function init(info) {
     // 清空先前渲染的 HTML
-    // cardsWrap.innerHTML = "";
+    cardsWrap.innerHTML = "";
     info.forEach((item) => {
         cardsWrap.innerHTML += `
         <div class="l-cards__item">
@@ -56,12 +51,13 @@ function init(info) {
             </a>
         </div>`;
     });
-    document.querySelector("[data-totalNum]").textContent = info.length;
+    document.querySelector("[data-totalNum]").textContent = allData.length;
 }
 
+// 新增套票
 let addBtn = document.querySelector("[data-add]");
-
-addBtn.addEventListener("click", () => {
+addBtn.addEventListener("click", (e) => {
+    e.preventDefault();
     let ticketName = document.querySelector("#ticketName").value,
         ticketImgUrl = document.querySelector("#ticketImgUrl").value,
         ticketArea = document.querySelector("#ticketArea").value,
@@ -80,7 +76,6 @@ addBtn.addEventListener("click", () => {
             description: "",
         },
     ];
-    console.log(ticketName);
     addInfo.name = ticketName;
     addInfo.imgUrl = ticketImgUrl;
     addInfo.area = ticketArea;
@@ -88,8 +83,20 @@ addBtn.addEventListener("click", () => {
     addInfo.group = ticketGroup;
     addInfo.rate = ticketRate;
     addInfo.description = ticketDec;
+    // 將新增的套票資料放入原本的資料集裡
     allData.push(addInfo);
-    //console.log("allData", allData);
-    // 需改成 init(allData);
-    init(addInfo);
+    init(allData);
+});
+
+// 地區篩選
+filterArea.addEventListener("change", (e) => {
+    let areaName = e.target.value;
+    let filterData = allData.filter(function(item) {
+        if (areaName === '全部地區') {
+            return item
+        } else {
+            return item.area == areaName;
+        }
+    });
+    init(filterData);
 });
