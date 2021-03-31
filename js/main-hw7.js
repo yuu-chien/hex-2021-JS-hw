@@ -3,7 +3,7 @@ let allData,
     $filterArea = document.querySelector("[data-filterArea]");
 
 axios
-    .get("../data/project-tickets.json")
+    .get("./data/project-tickets.json")
     .then((res) => {
         allData = res.data;
         //console.log(allData);
