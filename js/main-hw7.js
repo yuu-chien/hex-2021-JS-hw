@@ -57,7 +57,8 @@ function init(info) {
 
 // 增加套票
 let $addBtn = document.querySelector("[data-add]");
-$addBtn.addEventListener("click", () => {
+$addBtn.addEventListener("click", (e) => {
+    e.preventDefault();
     let ticketName = document.querySelector("#ticketName").value,
         ticketImgUrl = document.querySelector("#ticketImgUrl").value,
         ticketArea = document.querySelector("#ticketArea").value,
@@ -85,13 +86,18 @@ $addBtn.addEventListener("click", () => {
     addInfo.description = ticketDec;
     allData.push(addInfo);
     init(allData);
+    showChart(allData);
 });
 
 // 地區篩選
 $filterArea.addEventListener("change", (e) => {
     let areaName = e.target.value;
     let filterData = allData.filter(function(item) {
-        return item.area == areaName;
+        if (areaName === '全部地區') {
+            return item
+        } else {
+            return item.area == areaName;
+        }
     });
     init(filterData);
 });
@@ -132,6 +138,7 @@ function showChart(allData) {
                 value: ['高雄', '台北', '台中', '彰化']
             },
             type: "donut",
+            indexLabelFontColor: "red",
         },
         color: { pattern: ['#64C3BF', '#00807E', '#00000029', '#E68618'] },
         size: {
@@ -139,8 +146,14 @@ function showChart(allData) {
             height: 184,
         },
         donut: {
+            label: {
+                show: false,
+                // format: function(value, ratio, id) {
+                //     return d3.format('$')(value);
+                // }
+            },
             title: "套票地區比重",
-            width: 8
+            width: 10
         },
     });
 }
