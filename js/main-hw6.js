@@ -56,6 +56,7 @@ function init(info) {
 let addBtn = document.querySelector("[data-add]");
 
 addBtn.addEventListener("click", () => {
+    e.preventDefault();
     let ticketName = document.querySelector("#ticketName").value,
         ticketImgUrl = document.querySelector("#ticketImgUrl").value,
         ticketArea = document.querySelector("#ticketArea").value,
@@ -89,7 +90,7 @@ addBtn.addEventListener("click", () => {
 // 地區篩選
 filterArea.addEventListener("change", (e) => {
     let areaName = e.target.value;
-    let filterData = allData.filter(function (item) {
+    let filterData = allData.filter(function(item) {
         return item.area == areaName;
     });
     init(filterData);
