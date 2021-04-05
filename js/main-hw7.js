@@ -92,9 +92,9 @@ $addBtn.addEventListener("click", (e) => {
 // 地區篩選
 $filterArea.addEventListener("change", (e) => {
     let areaName = e.target.value;
-    let filterData = allData.filter(function(item) {
-        if (areaName === '全部地區') {
-            return item
+    let filterData = allData.filter(function (item) {
+        if (areaName === "全部地區") {
+            return item;
         } else {
             return item.area == areaName;
         }
@@ -107,7 +107,6 @@ let totalObj = {};
 let chartData = [];
 function showChart(allData) {
     allData.forEach((item) => {
-
         if (totalObj[item.area] == undefined) {
             totalObj[item.area] = 1;
         } else {
@@ -116,7 +115,7 @@ function showChart(allData) {
     });
     // console.log('totalObj', totalObj);  // {高雄: 2, 台北: 1, 台中: 1, 彰化: 1}
 
-    // let areaAry = Object.keys(totalObj);
+    let areaAry = Object.keys(totalObj);
     // console.log('areaAry', areaAry);    // ["高雄", "台北", "台中", "彰化"]
 
     // areaAry.forEach((item) => {
@@ -135,12 +134,12 @@ function showChart(allData) {
         data: {
             json: [totalObj],
             keys: {
-                value: ['高雄', '台北', '台中', '彰化']
+                value: areaAry,
             },
             type: "donut",
             indexLabelFontColor: "red",
         },
-        color: { pattern: ['#64C3BF', '#00807E', '#00000029', '#E68618'] },
+        color: { pattern: ["#64C3BF", "#00807E", "#00000029", "#E68618"] },
         size: {
             width: 360,
             height: 184,
@@ -153,7 +152,7 @@ function showChart(allData) {
                 // }
             },
             title: "套票地區比重",
-            width: 10
+            width: 10,
         },
     });
 }
